@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>News Portal</title>
+  	<!-- Tell the browser to be responsive to screen width -->
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  	<!-- Bootstrap 3.3.7 -->
+  	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  	<!-- Font Awesome -->
+  	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">    
+  	<!-- Theme style -->
+  	<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  	<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">  	
+  	<!-- Google Font -->
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  	<!-- Custom style -->
+  	<link rel="stylesheet" href="dist/css/custom_style.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+  <!-- Logo -->
+  <a href="home.php" class="logo">
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini"><b>N</b>P</span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg"><b>News</b>Portal</span>
+  </a>
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <span class="sr-only">Toggle navigation</span>
+    </a>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="images/profile.jpg" class="user-image" alt="User Image">
+            <span class="hidden-xs">Admin Admin</span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+              <img src="images/profile.jpg" class="img-circle" alt="User Image">
+
+              <p>
+                Admin                 <small>Member since Oct. 2018</small>
+              </p>
+            </li>
+            <li class="user-footer">
+              <div class="pull-left">
+                <a href="#profile" data-toggle="modal" class="btn btn-default btn-flat" id="admin_profile">Update</a>
+              </div>
+              <div class="pull-right">
+                <a href="../logout.php" class="btn btn-default btn-flat">Sign out</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<!-- Add -->
+<div class="modal fade" id="profile">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          	<div class="modal-header">
+            	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              		<span aria-hidden="true">&times;</span></button>
+            	<h4 class="modal-title"><b>Admin Profile</b></h4>
+          	</div>
+          	<div class="modal-body">
+            	<form class="form-horizontal" method="POST" action="profile_update.php?return=products.php" enctype="multipart/form-data">
+          		  <div class="form-group">
+                  	<label for="email" class="col-sm-3 control-label">Email</label>
+
+                  	<div class="col-sm-9">
+                    	<input type="text" class="form-control" id="email" name="email" value="admin@admin.com">
+                  	</div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+
+                    <div class="col-sm-9"> 
+                      <input type="password" class="form-control" id="password" name="password" value="$2y$12$mjv/GPng4oQFohhkPl8RPucmgRDFVs/UCVP02US.r92ra09kK4d7u">
+                    </div>
+                </div>
+                <div class="form-group">
+                  	<label for="firstname" class="col-sm-3 control-label">Firstname</label>
+
+                  	<div class="col-sm-9">
+                    	<input type="text" class="form-control" id="firstname" name="firstname" value="Admin">
+                  	</div>
+                </div>
+                <div class="form-group">
+                  	<label for="lastname" class="col-sm-3 control-label">Lastname</label>
+
+                  	<div class="col-sm-9">
+                    	<input type="text" class="form-control" id="lastname" name="lastname" value="Admin">
+                  	</div>
+                </div>
+                <div class="form-group">
+                    <label for="photo" class="col-sm-3 control-label">Photo:</label>
+
+                    <div class="col-sm-9">
+                      <input type="file" id="photo" name="photo">
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="curr_password" class="col-sm-3 control-label">Current Password:</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="curr_password" name="curr_password" placeholder="input current password to save changes" required>
+                    </div>
+                </div>
+          	</div>
+          	<div class="modal-footer">
+            	<button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+            	<button type="submit" class="btn btn-success btn-flat" name="save"><i class="fa fa-check-square-o"></i> Save</button>
+            	</form>
+          	</div>
+        </div>
+    </div>
+</div>  <aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="images/profile.jpg" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>Admin </p>
+       
+      </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">REPORTS</li>
+      <li><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+    
+      <li class="header">MANAGE</li>
+      
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-barcode"></i>
+          <span>Products</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="products.html"><i class="fa fa-circle-o"></i> Product list</a></li>
+          <li><a href="category.html"><i class="fa fa-circle-o"></i> Categories</a></li>
+        </ul>
+      </li>
+	  <li><a href="users.html"><i class="fa fa-users"></i> <span>Users</span></a></li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Product List
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li>Products</li>
+        <li class="active">Product List</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+            <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header with-border">
+              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" id="addproduct"><i class="fa fa-plus"></i> New</a>
+              <div class="pull-right">
+                <form class="form-inline">
+                  <div class="form-group">
+                    <label>Category: </label>
+                    <select class="form-control input-sm" id="select_category">
+                      <option value="0">ALL</option>
+                  
+
+                            <option value='1' >Notebooks</option>
+                       
+
+                            <option value='2' >Desktop PC</option>
+                      
+
+                           
+                                              </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="box-body">
+              <table id="example1" class="table table-bordered">
+                <thead>
+                  <th width="20%">Name</th>
+                  <th>Photo</th> 
+				  <th>Category</th> 
+                  <th>Price</th>                 
+                  <th>Tools</th>
+                </thead>
+                <tbody>
+                  
+                          <tr>
+                            <td>MICROSOFT Surface Pro 4 & Typecover - 128 GB</td>
+                            <td>
+                              <img src='images/microsoft-surface-pro-4-typecover-128-gb.jpg' height='30px' width='30px'>
+                            </td>
+							<td>1-Desktop PC</td>    
+                            <td>&euro; 799.00</td>                            
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+						  <tr>
+                            <th>Description</th>
+                            <td colspan=4>
+                              View Description  
+                            </td>
+						  </tr>
+                        
+                          <tr>
+                            <td>LENOVO Ideapad 320s-14IKB 14" Laptop - Grey</td>
+                            <td>
+                              <img src='images/lenovo-ideapad-320s-14ikb-14-laptop-grey.jpg' height='30px' width='30px'> 
+                            </td>
+							<td>2-Notebook</td> 
+                            <td>&euro; 399.00</td>
+                            
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat' ><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+                         <tr>
+                            <th>Description</th>
+                            <td colspan=4>
+                              View Description  
+                            </td>
+						  </tr>
+						  
+                          <tr>
+                            <td>APPLE 9.7" iPad - 32 GB, Gold</td>
+                            <td>
+                              <img src='images/apple-9-7-ipad-32-gb-gold.jpg' height='30px' width='30px'>
+                            </td> 
+							<td>1-Desktop PC</td> 							
+                            <td>&euro; 339.00</td>                           
+                            <td>
+                              <button class='btn btn-success btn-sm edit btn-flat'><i class='fa fa-edit'></i> Edit</button>
+                              <button class='btn btn-danger btn-sm delete btn-flat'><i class='fa fa-trash'></i> Delete</button>
+                            </td>
+                          </tr>
+                         <tr>
+                            <th>Description</th>
+                            <td colspan=4>
+                              View Description  
+                            </td>
+						  </tr>
+						  
+                    </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     
+  </div>
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>News Portal</b>
+    </div>
+    <strong>IVKHK | Jõhvi | 2022</strong>
+</footer>   
+
+
+
+<!-- Description -->
+<div class="modal fade" id="description">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b><span class="name"></span></b></h4>
+            </div>
+            <div class="modal-body">
+                <p id="desc"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add -->
+<div class="modal fade" id="addnew">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Add New Product</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="products_add.php" enctype="multipart/form-data">
+                <div class="form-group">
+                  <label for="name" class="col-sm-1 control-label">Name</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+
+                  <label for="category" class="col-sm-1 control-label">Category</label>
+
+                  <div class="col-sm-5">
+                    <select class="form-control" id="category" name="category" required>
+                      <option value="" selected>- Select -</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="price" class="col-sm-1 control-label">Price</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="price" name="price" required>
+                  </div>
+
+                  <label for="photo" class="col-sm-1 control-label">Photo</label>
+
+                  <div class="col-sm-5">
+                    <input type="file" id="photo" name="photo">
+                  </div>
+                </div>
+                <p><b>Description</b></p>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <textarea id="editor1" name="description" rows="10" cols="80" required></textarea>
+                  </div>
+                  
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Photo -->
+<div class="modal fade" id="edit_photo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b><span class="name"></span></b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="products_photo.php" enctype="multipart/form-data">
+                <input type="hidden" class="prodid" name="id">
+                <div class="form-group">
+                    <label for="photo" class="col-sm-3 control-label">Photo</label>
+
+                    <div class="col-sm-9">
+                      <input type="file" id="photo" name="photo" required>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>    <!-- Delete -->
+<div class="modal fade" id="delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Deleting...</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="products_delete.php">
+                <input type="hidden" class="prodid" name="id">
+                <div class="text-center">
+                    <p>DELETE PRODUCT</p>
+                    <h2 class="bold name"></h2>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" class="btn btn-danger btn-flat" name="delete"><i class="fa fa-trash"></i> Delete</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit -->
+<div class="modal fade" id="edit">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><b>Edit Product</b></h4>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal" method="POST" action="products_edit.php">
+                <input type="hidden" class="prodid" name="id">
+                <div class="form-group">
+                  <label for="edit_name" class="col-sm-1 control-label">Name</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="edit_name" name="name">
+                  </div>
+
+                  <label for="edit_category" class="col-sm-1 control-label">Category</label>
+
+                  <div class="col-sm-5">
+                    <select class="form-control" id="edit_category" name="category">
+                      <option selected id="catselected"></option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="edit_price" class="col-sm-1 control-label">Price</label>
+
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="edit_price" name="price">
+                  </div>
+                </div>
+                <p><b>Description</b></p>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <textarea id="editor2" name="description" rows="10" cols="80"></textarea>
+                  </div>
+                  
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+</body>
+</html>
